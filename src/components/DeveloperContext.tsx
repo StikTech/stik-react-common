@@ -15,7 +15,7 @@ import type {
 import { beautifyAuthError, beautifyPostgrestError } from "../error";
 import { toast } from "sonner";
 import React from "react";
-import { GlassCard } from "stik-react-common";
+import { GlassCard } from "./GlassCard";
 import githubLogo from "../assets/github-mark-white.svg";
 import type { DBApp, Screenshot } from "../types";
 

@@ -1,5 +1,6 @@
 import { SupabaseClient } from '@supabase/supabase-js';
 import { Database } from './database.types';
+export declare function initSupabase(url: string, key: string): void;
 export declare function getSupabase(): SupabaseClient<Database, "public", "public", {
     Tables: {
         apps: {
