@@ -1,0 +1,49 @@
+.dev-login-card {
+  min-width: 30vw;
+}
+
+.dev-login-title {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.dev-login-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login p {
+  margin: 0;
+}
+
+.login div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.signup-switcher a {
+  color: var(--accent-primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.github-logo {
+  width: 1.8em;
+  height: auto;
+}
+
+.github-button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+  margin: 0.8rem 0;
+}
