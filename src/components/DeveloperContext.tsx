@@ -6,7 +6,7 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import { supabase } from "../supabase";
+import { getSupabase } from "../supabase";
 import type {
   AuthError,
   PostgrestSingleResponse,
@@ -45,14 +45,16 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
   const loadedAppsRef = React.useRef(false);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setLoading(false);
-    });
+    getSupabase()
+      .auth.getSession()
+      .then(({ data: { session } }) => {
+        setSession(session);
+        setLoading(false);
+      });
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = getSupabase().auth.onAuthStateChange((_event, session) => {
       setSession(session);
       setLoading(false);
     });
@@ -66,7 +68,7 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
     loadedAppsRef.current = true;
-    const appsPromise = supabase
+    const appsPromise = getSupabase()
       .from("apps")
       .select("*")
       .eq("owner", session.user.id);
@@ -85,14 +87,14 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
     if (!session) return;
     if (session.user.user_metadata?.display_name === undefined) {
       if (session.user.app_metadata.provider === "github") {
-        supabase.auth.updateUser({
+        getSupabase().auth.updateUser({
           data: {
             display_name:
               session.user.user_metadata.preferred_username || "GitHub User",
           },
         });
       } else {
-        supabase.auth.updateUser({
+        getSupabase().auth.updateUser({
           data: {
             display_name: session.user.email?.split("@")[0] || "User",
           },
@@ -111,7 +113,11 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
         toast.error("You must be logged in to create an app.");
         return;
       }
-      const res = await supabase.from("apps").insert([app]).select().single();
+      const res = await getSupabase()
+        .from("apps")
+        .insert([app])
+        .select()
+        .single();
       if (res.error) {
         console.error(res.error);
         toast.error(beautifyPostgrestError(res.error, "app"));
@@ -132,8 +138,8 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
         ? "." + file.name.split(".").pop()
         : "";
 
-      const { data, error } = await supabase.storage
-        .from("app-images")
+      const { data, error } = await getSupabase()
+        .storage.from("app-images")
         .upload(
           `${session.user.id}/${app.id}/icon-${Date.now()}${extension}`,
           file
@@ -149,8 +155,8 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
         app.icon_path !== undefined &&
         app.icon_path !== ""
       ) {
-        const { error: deleteError } = await supabase.storage
-          .from("app-images")
+        const { error: deleteError } = await getSupabase()
+          .storage.from("app-images")
           .remove([app.icon_path || ""]);
         if (deleteError) {
           console.error("Error deleting old icon:", deleteError);
@@ -160,7 +166,7 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
 
       const path = data?.path;
 
-      const res = await supabase
+      const res = await getSupabase()
         .from("apps")
         .update({
           icon_path: path,
@@ -231,8 +237,8 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
           ? "." + file.name.split(".").pop()
           : "";
 
-        const { data, error } = await supabase.storage
-          .from("app-images")
+        const { data, error } = await getSupabase()
+          .storage.from("app-images")
           .upload(
             `${session.user.id}/${app.id}/screenshot-${
               isIpad ? "ipad" : "iphone"
@@ -257,7 +263,7 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
         ...screenshots,
       ];
 
-      const res = await supabase
+      const res = await getSupabase()
         .from("apps")
         .update({
           [columnToUpdate]: updatedScreenshots,
@@ -321,7 +327,7 @@ const Login = () => {
         return;
       }
       authPromise = async () => {
-        let res = await supabase.auth.signUp({
+        let res = await getSupabase().auth.signUp({
           email,
           password,
           options: {
@@ -343,7 +349,7 @@ const Login = () => {
       };
     } else {
       authPromise = async () => {
-        let res = await supabase.auth.signInWithPassword({
+        let res = await getSupabase().auth.signInWithPassword({
           email,
           password,
         });
@@ -381,7 +387,7 @@ const Login = () => {
             <button
               className="github-button"
               onClick={() => {
-                supabase.auth.signInWithOAuth({
+                getSupabase().auth.signInWithOAuth({
                   provider: "github",
                   options: {
                     redirectTo: `${window.location.origin}/developers`,

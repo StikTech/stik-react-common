@@ -1,8 +1,17 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "./database.types";
 
-export let supabase: ReturnType<typeof createClient<Database>>;
+let _supabase: SupabaseClient<Database> | null = null;
 
 export function initSupabase(url: string, key: string) {
-  supabase = createClient<Database>(url, key);
+  _supabase = createClient<Database>(url, key);
+}
+
+export function getSupabase() {
+  if (!_supabase) {
+    throw new Error(
+      "Supabase has not been initialized. Call initSupabase() first."
+    );
+  }
+  return _supabase;
 }
