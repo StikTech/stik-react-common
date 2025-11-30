@@ -6,7 +6,7 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import supabase from "../supabase";
+import { supabase } from "../supabase";
 import type {
   AuthError,
   PostgrestSingleResponse,

@@ -38,5 +38,8 @@
     "@supabase/supabase-js": "^2.86.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
+  },
+  "dependencies": {
+    "stik-react-common": "github:StikTech/stik-react-common#ae68d1d"
   }
 }
