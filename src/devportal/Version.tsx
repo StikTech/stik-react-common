@@ -75,6 +75,7 @@ export const Version = () => {
         titleOverride={`Version ${version.version} (${version.build_version})`}
         subtitleOverride={app.name}
         showBackToApp
+        backToAppPage="versions"
       />
       <section className="developer-page">
         <EditVersionCard

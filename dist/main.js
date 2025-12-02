@@ -9660,7 +9660,8 @@ const Lo = er([se(), Dt({
         app: i,
         titleOverride: `Version ${a.version} (${a.build_version})`,
         subtitleOverride: i.name,
-        showBackToApp: !0
+        showBackToApp: !0,
+        backToAppPage: "versions"
       }
     ),
     /* @__PURE__ */ Y("section", { className: "developer-page", children: [
