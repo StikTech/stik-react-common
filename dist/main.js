@@ -10,8 +10,12 @@ import './assets/main.css';const bs = {
   return /* @__PURE__ */ Z("div", { className: n, style: t, children: e });
 };
 let zn = null;
-function D0(e, r) {
-  zn = _s(e, r);
+function D0(e, r, t = !1) {
+  zn = _s(e, r, {
+    auth: {
+      flowType: t ? "pkce" : "implicit"
+    }
+  });
 }
 function ae() {
   if (!zn)
