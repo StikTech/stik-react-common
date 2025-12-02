@@ -10381,7 +10381,7 @@ function Ue(e, t) {
   if (e === !1 || e === null || typeof e > "u")
     throw new Error(t);
 }
-function mt(e, t) {
+function gt(e, t) {
   if (!e) {
     typeof console < "u" && console.warn(t);
     try {
@@ -10568,7 +10568,7 @@ function si(e, t) {
   };
 }
 function _p(e, t = !1, r = !0) {
-  mt(
+  gt(
     e === "*" || !e.endsWith("*") || e.endsWith("/*"),
     `Route path "${e}" will be treated as if it were "${e.replace(/\*$/, "/*")}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${e.replace(/\*$/, "/*")}".`
   );
@@ -10582,7 +10582,7 @@ function vp(e) {
   try {
     return e.split("/").map((t) => decodeURIComponent(t).replace(/\//g, "%2F")).join("/");
   } catch (t) {
-    return mt(
+    return gt(
       !1,
       `The URL path "${e}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${t}).`
     ), e;
@@ -10608,7 +10608,7 @@ function yp(e, t = "/") {
     else {
       if (r.includes("//")) {
         let a = r;
-        r = r.replace(/\/\/+/g, "/"), mt(
+        r = r.replace(/\/\/+/g, "/"), gt(
           !1,
           `Pathnames cannot have embedded double slashes - normalizing ${a} -> ${r}`
         );
@@ -10748,7 +10748,7 @@ var Zc = "You should call navigate() in a React.useEffect(), not when your compo
 function Mc(e) {
   H.useContext(St).static || H.useLayoutEffect(e);
 }
-function ot() {
+function mt() {
   let { isDataRoute: e } = H.useContext(at);
   return e ? Wp() : Cp();
 }
@@ -10764,7 +10764,7 @@ function Cp() {
     a.current = !0;
   }), H.useCallback(
     (l, c = {}) => {
-      if (mt(a.current, Zc), !a.current) return;
+      if (gt(a.current, Zc), !a.current) return;
       if (typeof l == "number") {
         r.go(l);
         return;
@@ -10840,10 +10840,10 @@ Please change the parent <Route path="${_}"> to <Route path="${_ === "/" ? "*" :
     m = "/" + g.replace(/^\//, "").split("/").slice(_.length).join("/");
   }
   let v = zc(e, { pathname: m });
-  return mt(
+  return gt(
     d || v != null,
     `No routes matched location "${h.pathname}${h.search}${h.hash}" `
-  ), mt(
+  ), gt(
     v == null || v[v.length - 1].route.element !== void 0 || v[v.length - 1].route.Component !== void 0 || v[v.length - 1].route.lazy !== void 0,
     `Matched leaf route at location "${h.pathname}${h.search}${h.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`
   ), Lp(
@@ -11061,14 +11061,14 @@ function Wp() {
     r.current = !0;
   }), H.useCallback(
     async (i, s = {}) => {
-      mt(r.current, Zc), r.current && (typeof i == "number" ? e.navigate(i) : await e.navigate(i, { fromRouteId: t, ...s }));
+      gt(r.current, Zc), r.current && (typeof i == "number" ? e.navigate(i) : await e.navigate(i, { fromRouteId: t, ...s }));
     },
     [e, t]
   );
 }
 var eo = {};
 function Vc(e, t, r) {
-  !t && !eo[e] && (eo[e] = !0, mt(!1, r));
+  !t && !eo[e] && (eo[e] = !0, gt(!1, r));
 }
 H.memo(qp);
 function qp({
@@ -11123,7 +11123,7 @@ var eg = /* @__PURE__ */ new Set([
   "text/plain"
 ]);
 function Ui(e) {
-  return e != null && !eg.has(e) ? (mt(
+  return e != null && !eg.has(e) ? (gt(
     !1,
     `"${e}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${Yn}"`
   ), null) : e;
@@ -11445,7 +11445,7 @@ var Kc = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i, Gc = H.forwardRef(
         let S = new URL(window.location.href), I = c.startsWith("//") ? new URL(S.protocol + c) : new URL(c), P = zt(I.pathname, g);
         I.origin === S.origin && P != null ? c = P + I.search + I.hash : p = !0;
       } catch {
-        mt(
+        gt(
           !1,
           `<Link to="${c}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`
         );
@@ -11588,7 +11588,7 @@ function wg(e, {
   relative: s,
   viewTransition: a
 } = {}) {
-  let o = ot(), l = Lt(), c = _n(e, { relative: s });
+  let o = mt(), l = Lt(), c = _n(e, { relative: s });
   return H.useCallback(
     (u) => {
       if (Xp(u, t)) {
@@ -11687,7 +11687,7 @@ function xg(e, { relative: t } = {}) {
   return si(i.pathname, a) != null || si(i.pathname, s) != null;
 }
 const q1 = () => {
-  const { session: e } = Me(), t = ot();
+  const { session: e } = Me(), t = mt();
   return /* @__PURE__ */ Y("section", { className: "settings-page", children: [
     /* @__PURE__ */ Y("div", { className: "settings-header", children: [
       /* @__PURE__ */ j("h1", { children: "Account Settings" }),
@@ -11723,7 +11723,7 @@ const q1 = () => {
   subtitleOverride: i,
   inline: s
 }) => {
-  const a = ot(), o = Ws(
+  const a = mt(), o = Ws(
     () => e.icon_path ? ue().storage.from("app-images").getPublicUrl(e.icon_path).data.publicUrl : "/default-icon.png",
     [e.icon_path]
   );
@@ -11769,7 +11769,7 @@ const q1 = () => {
     }
   );
 }, H1 = () => {
-  const { session: e, apps: t } = Me(), r = ot();
+  const { session: e, apps: t } = Me();
   return /* @__PURE__ */ Y("div", { className: "developer-container", children: [
     /* @__PURE__ */ j("h1", { children: "StikStore Developer Portal" }),
     /* @__PURE__ */ Y("section", { className: "developer-page", children: [
@@ -11784,7 +11784,6 @@ const q1 = () => {
             "button",
             {
               onClick: () => {
-                r("/developers/account-settings");
               },
               children: "Account Settings"
             }
@@ -11794,22 +11793,20 @@ const q1 = () => {
       ] }),
       /* @__PURE__ */ Y(Ie, { children: [
         /* @__PURE__ */ j("h3", { children: "Uploaded Apps" }),
-        /* @__PURE__ */ j("ul", { style: { listStyleType: "none", padding: 0, margin: 0 }, children: t.map((n) => /* @__PURE__ */ j(
+        /* @__PURE__ */ j("ul", { style: { listStyleType: "none", padding: 0, margin: 0 }, children: t.map((r) => /* @__PURE__ */ j(
           "li",
           {
             className: "button developer-app-list-item",
             onClick: () => {
-              r(`/developers/app/${n.id}`);
             },
-            children: /* @__PURE__ */ j(an, { app: n, inline: !0 })
+            children: /* @__PURE__ */ j(an, { app: r, inline: !0 })
           },
-          n.id
+          r.id
         )) }),
         /* @__PURE__ */ j(
           "button",
           {
             onClick: () => {
-              r("/developers/new-app");
             },
             className: "primary",
             style: {
@@ -13425,7 +13422,7 @@ function Sg() {
           var M;
           return y && y.state ? (y.total_in = y.total_out = 0, y.data_type = p, (M = y.state).pending = 0, M.pending_out = 0, M.wrap < 0 && (M.wrap = -M.wrap), M.status = M.wrap ? T : O, y.adler = M.wrap === 2 ? 0 : 1, M.last_flush = d, o._tr_init(M), h) : oe(y, g);
         }
-        function lt(y) {
+        function ot(y) {
           var M = Te(y);
           return M === h && (function(D) {
             D.window_size = 2 * D.w_size, re(D.head), D.max_lazy_match = s[D.level].max_lazy, D.good_match = s[D.level].good_length, D.nice_match = s[D.level].nice_length, D.max_chain_length = s[D.level].max_chain, D.strstart = 0, D.block_start = 0, D.lookahead = 0, D.insert = 0, D.match_length = D.prev_length = S - 1, D.match_available = 0, D.ins_h = 0;
@@ -13437,7 +13434,7 @@ function Sg() {
           if (M === m && (M = 6), N < 0 ? (W = 0, N = -N) : 15 < N && (W = 2, N -= 16), C < 1 || w < C || D !== _ || N < 8 || 15 < N || M < 0 || 9 < M || $ < 0 || v < $) return oe(y, g);
           N === 8 && (N = 9);
           var q = new Ne();
-          return (y.state = q).strm = y, q.wrap = W, q.gzhead = null, q.w_bits = N, q.w_size = 1 << q.w_bits, q.w_mask = q.w_size - 1, q.hash_bits = C + 7, q.hash_size = 1 << q.hash_bits, q.hash_mask = q.hash_size - 1, q.hash_shift = ~~((q.hash_bits + S - 1) / S), q.window = new a.Buf8(2 * q.w_size), q.head = new a.Buf16(q.hash_size), q.prev = new a.Buf16(q.w_size), q.lit_bufsize = 1 << C + 6, q.pending_buf_size = 4 * q.lit_bufsize, q.pending_buf = new a.Buf8(q.pending_buf_size), q.d_buf = 1 * q.lit_bufsize, q.l_buf = 3 * q.lit_bufsize, q.level = M, q.strategy = $, q.method = D, lt(y);
+          return (y.state = q).strm = y, q.wrap = W, q.gzhead = null, q.w_bits = N, q.w_size = 1 << q.w_bits, q.w_mask = q.w_size - 1, q.hash_bits = C + 7, q.hash_size = 1 << q.hash_bits, q.hash_mask = q.hash_size - 1, q.hash_shift = ~~((q.hash_bits + S - 1) / S), q.window = new a.Buf8(2 * q.w_size), q.head = new a.Buf16(q.hash_size), q.prev = new a.Buf16(q.w_size), q.lit_bufsize = 1 << C + 6, q.pending_buf_size = 4 * q.lit_bufsize, q.pending_buf = new a.Buf8(q.pending_buf_size), q.d_buf = 1 * q.lit_bufsize, q.l_buf = 3 * q.lit_bufsize, q.level = M, q.strategy = $, q.method = D, ot(y);
         }
         s = [new me(0, 0, 0, 0, function(y, M) {
           var D = 65535;
@@ -13453,7 +13450,7 @@ function Sg() {
           return y.insert = 0, M === f ? (F(y, !0), y.strm.avail_out === 0 ? Q : V) : (y.strstart > y.block_start && (F(y, !1), y.strm.avail_out), b);
         }), new me(4, 4, 8, 4, Fe), new me(4, 5, 16, 8, Fe), new me(4, 6, 32, 32, Fe), new me(4, 4, 16, 16, fe), new me(8, 16, 32, 32, fe), new me(8, 16, 128, 128, fe), new me(8, 32, 128, 256, fe), new me(32, 128, 258, 1024, fe), new me(32, 258, 258, 4096, fe)], i.deflateInit = function(y, M) {
           return rt(y, M, _, 15, 8, 0);
-        }, i.deflateInit2 = rt, i.deflateReset = lt, i.deflateResetKeep = Te, i.deflateSetHeader = function(y, M) {
+        }, i.deflateInit2 = rt, i.deflateReset = ot, i.deflateResetKeep = Te, i.deflateSetHeader = function(y, M) {
           return y && y.state ? y.state.wrap !== 2 ? g : (y.state.gzhead = M, h) : g;
         }, i.deflate = function(y, M) {
           var D, N, C, $;
@@ -13656,7 +13653,7 @@ function Sg() {
         i.inflateReset = A, i.inflateReset2 = k, i.inflateResetKeep = w, i.inflateInit = function(T) {
           return E(T, 15);
         }, i.inflateInit2 = E, i.inflate = function(T, O) {
-          var b, z, Q, V, oe, B, re, L, F, se, X, J, Ae, Fe, fe, me, Ne, Te, lt, rt, y, M, D, N, C = 0, $ = new s.Buf8(4), W = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
+          var b, z, Q, V, oe, B, re, L, F, se, X, J, Ae, Fe, fe, me, Ne, Te, ot, rt, y, M, D, N, C = 0, $ = new s.Buf8(4), W = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
           if (!T || !T.state || !T.output || !T.input && T.avail_in !== 0) return h;
           (b = T.state).mode === 12 && (b.mode = 13), oe = T.next_out, Q = T.output, re = T.avail_out, V = T.next_in, z = T.input, B = T.avail_in, L = b.hold, F = b.bits, se = B, X = re, M = f;
           e: for (; ; ) switch (b.mode) {
@@ -13898,7 +13895,7 @@ function Sg() {
                 B--, L += z[V++] << F, F += 8;
               }
               if (me && (240 & me) == 0) {
-                for (Te = fe, lt = me, rt = Ne; me = (C = b.lencode[rt + ((L & (1 << Te + lt) - 1) >> Te)]) >>> 16 & 255, Ne = 65535 & C, !(Te + (fe = C >>> 24) <= F); ) {
+                for (Te = fe, ot = me, rt = Ne; me = (C = b.lencode[rt + ((L & (1 << Te + ot) - 1) >> Te)]) >>> 16 & 255, Ne = 65535 & C, !(Te + (fe = C >>> 24) <= F); ) {
                   if (B === 0) break e;
                   B--, L += z[V++] << F, F += 8;
                 }
@@ -13932,7 +13929,7 @@ function Sg() {
                 B--, L += z[V++] << F, F += 8;
               }
               if ((240 & me) == 0) {
-                for (Te = fe, lt = me, rt = Ne; me = (C = b.distcode[rt + ((L & (1 << Te + lt) - 1) >> Te)]) >>> 16 & 255, Ne = 65535 & C, !(Te + (fe = C >>> 24) <= F); ) {
+                for (Te = fe, ot = me, rt = Ne; me = (C = b.distcode[rt + ((L & (1 << Te + ot) - 1) >> Te)]) >>> 16 & 255, Ne = 65535 & C, !(Te + (fe = C >>> 24) <= F); ) {
                   if (B === 0) break e;
                   B--, L += z[V++] << F, F += 8;
                 }
@@ -14117,7 +14114,7 @@ function Sg() {
           for (var q = C.heap[W], U = W << 1; U <= C.heap_len && (U < C.heap_len && Ne($, C.heap[U + 1], C.heap[U], C.depth) && U++, !Ne($, q, C.heap[U], C.depth)); ) C.heap[W] = C.heap[U], W = U, U <<= 1;
           C.heap[W] = q;
         }
-        function lt(C, $, W) {
+        function ot(C, $, W) {
           var q, U, K, ee, G = 0;
           if (C.last_lit !== 0) for (; q = C.pending_buf[C.d_buf + 2 * G] << 8 | C.pending_buf[C.d_buf + 2 * G + 1], U = C.pending_buf[C.l_buf + G], G++, q === 0 ? J(C, U, $) : (J(C, (K = b[U]) + d + 1, $), (ee = x[K]) !== 0 && X(C, U -= z[K], ee), J(C, K = F(--q), W), (ee = R[K]) !== 0 && X(C, q -= B[K], ee)), G < C.last_lit; ) ;
           J(C, w, $);
@@ -14129,15 +14126,15 @@ function Sg() {
           for ($.max_code = _e, W = C.heap_len >> 1; 1 <= W; W--) Te(C, K, W);
           for (U = ae; W = C.heap[1], C.heap[1] = C.heap[C.heap_len--], Te(C, K, 1), q = C.heap[1], C.heap[--C.heap_max] = W, C.heap[--C.heap_max] = q, K[2 * U] = K[2 * W] + K[2 * q], C.depth[U] = (C.depth[W] >= C.depth[q] ? C.depth[W] : C.depth[q]) + 1, K[2 * W + 1] = K[2 * q + 1] = U, C.heap[1] = U++, Te(C, K, 1), 2 <= C.heap_len; ) ;
           C.heap[--C.heap_max] = C.heap[1], (function(pe, Je) {
-            var Ur, ct, Fr, Oe, En, Ai, _t = Je.dyn_tree, ka = Je.max_code, gh = Je.stat_desc.static_tree, mh = Je.stat_desc.has_stree, _h = Je.stat_desc.extra_bits, Ea = Je.stat_desc.extra_base, Lr = Je.stat_desc.max_length, xn = 0;
+            var Ur, lt, Fr, Oe, En, Ai, _t = Je.dyn_tree, ka = Je.max_code, gh = Je.stat_desc.static_tree, mh = Je.stat_desc.has_stree, _h = Je.stat_desc.extra_bits, Ea = Je.stat_desc.extra_base, Lr = Je.stat_desc.max_length, xn = 0;
             for (Oe = 0; Oe <= v; Oe++) pe.bl_count[Oe] = 0;
-            for (_t[2 * pe.heap[pe.heap_max] + 1] = 0, Ur = pe.heap_max + 1; Ur < m; Ur++) Lr < (Oe = _t[2 * _t[2 * (ct = pe.heap[Ur]) + 1] + 1] + 1) && (Oe = Lr, xn++), _t[2 * ct + 1] = Oe, ka < ct || (pe.bl_count[Oe]++, En = 0, Ea <= ct && (En = _h[ct - Ea]), Ai = _t[2 * ct], pe.opt_len += Ai * (Oe + En), mh && (pe.static_len += Ai * (gh[2 * ct + 1] + En)));
+            for (_t[2 * pe.heap[pe.heap_max] + 1] = 0, Ur = pe.heap_max + 1; Ur < m; Ur++) Lr < (Oe = _t[2 * _t[2 * (lt = pe.heap[Ur]) + 1] + 1] + 1) && (Oe = Lr, xn++), _t[2 * lt + 1] = Oe, ka < lt || (pe.bl_count[Oe]++, En = 0, Ea <= lt && (En = _h[lt - Ea]), Ai = _t[2 * lt], pe.opt_len += Ai * (Oe + En), mh && (pe.static_len += Ai * (gh[2 * lt + 1] + En)));
             if (xn !== 0) {
               do {
                 for (Oe = Lr - 1; pe.bl_count[Oe] === 0; ) Oe--;
                 pe.bl_count[Oe]--, pe.bl_count[Oe + 1] += 2, pe.bl_count[Lr]--, xn -= 2;
               } while (0 < xn);
-              for (Oe = Lr; Oe !== 0; Oe--) for (ct = pe.bl_count[Oe]; ct !== 0; ) ka < (Fr = pe.heap[--Ur]) || (_t[2 * Fr + 1] !== Oe && (pe.opt_len += (Oe - _t[2 * Fr + 1]) * _t[2 * Fr], _t[2 * Fr + 1] = Oe), ct--);
+              for (Oe = Lr; Oe !== 0; Oe--) for (lt = pe.bl_count[Oe]; lt !== 0; ) ka < (Fr = pe.heap[--Ur]) || (_t[2 * Fr + 1] !== Oe && (pe.opt_len += (Oe - _t[2 * Fr + 1]) * _t[2 * Fr], _t[2 * Fr + 1] = Oe), lt--);
             }
           })(C, $), Fe(K, _e, C.bl_count);
         }
@@ -14186,11 +14183,11 @@ function Sg() {
             var ae;
             for (y(G, G.dyn_ltree, G.l_desc.max_code), y(G, G.dyn_dtree, G.d_desc.max_code), rt(G, G.bl_desc), ae = g - 1; 3 <= ae && G.bl_tree[2 * I[ae] + 1] === 0; ae--) ;
             return G.opt_len += 3 * (ae + 1) + 5 + 5 + 4, ae;
-          })(C), U = C.opt_len + 3 + 7 >>> 3, (K = C.static_len + 3 + 7 >>> 3) <= U && (U = K)) : U = K = W + 5, W + 4 <= U && $ !== -1 ? N(C, $, W, q) : C.strategy === 4 || K === U ? (X(C, 2 + (q ? 1 : 0), 3), lt(C, P, T)) : (X(C, 4 + (q ? 1 : 0), 3), (function(G, ae, _e, pe) {
+          })(C), U = C.opt_len + 3 + 7 >>> 3, (K = C.static_len + 3 + 7 >>> 3) <= U && (U = K)) : U = K = W + 5, W + 4 <= U && $ !== -1 ? N(C, $, W, q) : C.strategy === 4 || K === U ? (X(C, 2 + (q ? 1 : 0), 3), ot(C, P, T)) : (X(C, 4 + (q ? 1 : 0), 3), (function(G, ae, _e, pe) {
             var Je;
             for (X(G, ae - 257, 5), X(G, _e - 1, 5), X(G, pe - 4, 4), Je = 0; Je < pe; Je++) X(G, G.bl_tree[2 * I[Je] + 1], 3);
             M(G, G.dyn_ltree, ae - 1), M(G, G.dyn_dtree, _e - 1);
-          })(C, C.l_desc.max_code + 1, C.d_desc.max_code + 1, ee + 1), lt(C, C.dyn_ltree, C.dyn_dtree)), fe(C), q && me(C);
+          })(C, C.l_desc.max_code + 1, C.d_desc.max_code + 1, ee + 1), ot(C, C.dyn_ltree, C.dyn_dtree)), fe(C), q && me(C);
         }, i._tr_tally = function(C, $, W) {
           return C.pending_buf[C.d_buf + 2 * C.last_lit] = $ >>> 8 & 255, C.pending_buf[C.d_buf + 2 * C.last_lit + 1] = 255 & $, C.pending_buf[C.l_buf + C.last_lit] = 255 & W, C.last_lit++, $ === 0 ? C.dyn_ltree[2 * W]++ : (C.matches++, $--, C.dyn_ltree[2 * (b[W] + d + 1)]++, C.dyn_dtree[2 * F($)]++), C.last_lit === C.lit_bufsize - 1;
         }, i._tr_align = function(C) {
@@ -15716,7 +15713,7 @@ const e0 = new Yg.XMLParser({
     throw new Error("plist tag must contain exactly one object.");
   return Cs(n[0]);
 }, ko = /[A-Za-z0-9_$+\/:.-]/, t0 = /[A-Fa-f0-9]/, ru = [" ", "	", `
-`, "\r"], r0 = (e) => JSON.parse(`"${e}"`), ut = (e, t, r = !1) => {
+`, "\r"], r0 = (e) => JSON.parse(`"${e}"`), ct = (e, t, r = !1) => {
   if ([, e] = Jt(e), !e.startsWith(t)) {
     if (r)
       return [null, e];
@@ -15762,7 +15759,7 @@ const e0 = new Yg.XMLParser({
   switch (e = e.substring(1), r) {
     case "{":
       if (t = {}, [, e] = Jt(e), e.charAt(0) === "}") {
-        [, e] = ut(e, "}");
+        [, e] = ct(e, "}");
         break;
       }
       for (; e.charAt(0) !== "}"; ) {
@@ -15771,29 +15768,29 @@ const e0 = new Yg.XMLParser({
           throw new Error("Expected string key");
         if (i === "__proto__")
           throw new Error("Attempted prototype pollution");
-        if ([, e] = ut(e, "="), [s, e] = Xn(e), t[i] = s, [, e] = ut(e, ";"), e.length === 0)
+        if ([, e] = ct(e, "="), [s, e] = Xn(e), t[i] = s, [, e] = ct(e, ";"), e.length === 0)
           throw new Error("No matching '}' found");
       }
-      [, e] = ut(e, "}");
+      [, e] = ct(e, "}");
       break;
     case "(":
       if (t = [], [, e] = Jt(e), e.charAt(0) === ")") {
-        [, e] = ut(e, ")");
+        [, e] = ct(e, ")");
         break;
       }
       for (; e.charAt(0) !== ")"; ) {
         let i, s;
-        if ([i, e] = Xn(e), t.push(i), [s, e] = ut(e, ",", !0), !s)
+        if ([i, e] = Xn(e), t.push(i), [s, e] = ct(e, ",", !0), !s)
           break;
         if (e.length === 0)
           throw new Error("No matching ')' found");
       }
-      [, e] = ut(e, ")");
+      [, e] = ct(e, ")");
       break;
     case "<":
       let n = "";
       if ([, e] = Jt(e), e.charAt(0) === ">") {
-        [, e] = ut(e, ">");
+        [, e] = ct(e, ">");
         break;
       }
       for (; e.charAt(0) !== ">"; ) {
@@ -15814,14 +15811,14 @@ const e0 = new Yg.XMLParser({
         const i = n.match(/../g);
         i !== null && (t = new Uint8Array(i.map((s) => parseInt(s, 16))).buffer);
       }
-      [, e] = ut(e, ">");
+      [, e] = ct(e, ">");
       break;
     case '"':
     case "'":
       for (t = ""; e.charAt(0) !== r; )
         if (t += e.charAt(0), e.charAt(0) === "\\" ? (t += e.charAt(1), e = e.substring(2)) : e = e.substring(1), e.length === 0)
           throw new Error(`No matching ${r} found`);
-      t = r0(t), [, e] = ut(e, r);
+      t = r0(t), [, e] = ct(e, r);
       break;
     default:
       if (!ko.test(r))
@@ -15902,7 +15899,7 @@ const fu = (e) => e < 256 ? ln[e] : ln[256 + (e >>> 7)], un = (e, t) => {
   e.pending_buf[e.pending++] = t & 255, e.pending_buf[e.pending++] = t >>> 8 & 255;
 }, De = (e, t, r) => {
   e.bi_valid > Yi - r ? (e.bi_buf |= t << e.bi_valid & 65535, un(e, e.bi_buf), e.bi_buf = t >> Yi - e.bi_valid, e.bi_valid += r - Yi) : (e.bi_buf |= t << e.bi_valid & 65535, e.bi_valid += r);
-}, ft = (e, t, r) => {
+}, dt = (e, t, r) => {
   De(
     e,
     r[t * 2],
@@ -15992,9 +15989,9 @@ const fu = (e) => e < 256 ? ln[e] : ln[256 + (e >>> 7)], un = (e, t) => {
   let n, i, s = 0, a, o;
   if (e.sym_next !== 0)
     do
-      n = e.pending_buf[e.sym_buf + s++] & 255, n += (e.pending_buf[e.sym_buf + s++] & 255) << 8, i = e.pending_buf[e.sym_buf + s++], n === 0 ? ft(e, i, t) : (a = cn[i], ft(e, a + vn + 1, t), o = Ns[a], o !== 0 && (i -= ha[a], De(e, i, o)), n--, a = fu(n), ft(e, a, r), o = Qn[a], o !== 0 && (n -= oi[a], De(e, n, o)));
+      n = e.pending_buf[e.sym_buf + s++] & 255, n += (e.pending_buf[e.sym_buf + s++] & 255) << 8, i = e.pending_buf[e.sym_buf + s++], n === 0 ? dt(e, i, t) : (a = cn[i], dt(e, a + vn + 1, t), o = Ns[a], o !== 0 && (i -= ha[a], De(e, i, o)), n--, a = fu(n), dt(e, a, r), o = Qn[a], o !== 0 && (n -= oi[a], De(e, n, o)));
     while (s < e.sym_next);
-  ft(e, ua, t);
+  dt(e, ua, t);
 }, Ps = (e, t) => {
   const r = t.dyn_tree, n = t.stat_desc.static_tree, i = t.stat_desc.has_stree, s = t.stat_desc.elems;
   let a, o, l = -1, c;
@@ -16044,9 +16041,9 @@ const fu = (e) => e < 256 ? ln[e] : ln[256 + (e >>> 7)], un = (e, t) => {
     if (s = a, a = t[(n + 1) * 2 + 1], !(++o < l && s === a)) {
       if (o < c)
         do
-          ft(e, s, e.bl_tree);
+          dt(e, s, e.bl_tree);
         while (--o !== 0);
-      else s !== 0 ? (s !== i && (ft(e, s, e.bl_tree), o--), ft(e, au, e.bl_tree), De(e, o - 3, 2)) : o <= 10 ? (ft(e, ou, e.bl_tree), De(e, o - 3, 3)) : (ft(e, lu, e.bl_tree), De(e, o - 11, 7));
+      else s !== 0 ? (s !== i && (dt(e, s, e.bl_tree), o--), dt(e, au, e.bl_tree), De(e, o - 3, 2)) : o <= 10 ? (dt(e, ou, e.bl_tree), De(e, o - 3, 3)) : (dt(e, lu, e.bl_tree), De(e, o - 11, 7));
       o = 0, i = s, a === 0 ? (l = 138, c = 3) : s === a ? (l = 6, c = 3) : (l = 7, c = 4);
     }
 }, _0 = (e) => {
@@ -16077,7 +16074,7 @@ const b0 = (e) => {
 }, vu = (e, t, r, n) => {
   De(e, (o0 << 1) + (n ? 1 : 0), 3), _u(e), un(e, r), un(e, ~r), r && e.pending_buf.set(e.window.subarray(t, t + r), e.pending), e.pending += r;
 }, y0 = (e) => {
-  De(e, iu << 1, 3), ft(e, ua, yt), p0(e);
+  De(e, iu << 1, 3), dt(e, ua, yt), p0(e);
 }, k0 = (e, t, r, n) => {
   let i, s, a = 0;
   e.level > 0 ? (e.strm.data_type === a0 && (e.strm.data_type = w0(e)), Ps(e, e.l_desc), Ps(e, e.d_desc), a = _0(e), i = e.opt_len + 3 + 7 >>> 3, s = e.static_len + 3 + 7 >>> 3, s <= i && (i = s)) : i = s = r + 5, r + 4 <= i && t !== -1 ? vu(e, t, r, n) : e.strategy === s0 || s === i ? (De(e, (iu << 1) + (n ? 1 : 0), 3), To(e, yt, Jr)) : (De(e, (l0 << 1) + (n ? 1 : 0), 3), v0(e, e.l_desc.max_code + 1, e.d_desc.max_code + 1, a + 1), To(e, e.dyn_ltree, e.dyn_dtree)), mu(e), n && _u(e);
@@ -16184,7 +16181,7 @@ const { _tr_init: $0, _tr_stored_block: $s, _tr_flush_block: z0, _tr_tally: It, 
   Z_BLOCK: Co,
   Z_OK: je,
   Z_STREAM_END: No,
-  Z_STREAM_ERROR: pt,
+  Z_STREAM_ERROR: ft,
   Z_DATA_ERROR: L0,
   Z_BUF_ERROR: ts,
   Z_DEFAULT_COMPRESSION: B0,
@@ -16195,7 +16192,7 @@ const { _tr_init: $0, _tr_stored_block: $s, _tr_flush_block: z0, _tr_tally: It, 
   Z_DEFAULT_STRATEGY: V0,
   Z_UNKNOWN: W0,
   Z_DEFLATED: bi
-} = wn, q0 = 9, H0 = 15, K0 = 8, G0 = 29, J0 = 256, zs = J0 + 1 + G0, Y0 = 30, X0 = 19, Q0 = 2 * zs + 1, em = 15, de = 3, Rt = 258, gt = Rt + de + 1, tm = 32, Sr = 42, da = 57, js = 69, Us = 73, Fs = 91, Ls = 103, Qt = 113, qr = 666, Be = 1, Pr = 2, rr = 3, $r = 4, rm = 3, er = (e, t) => (e.msg = tr[t], t), Po = (e) => e * 2 - (e > 4 ? 9 : 0), Ot = (e) => {
+} = wn, q0 = 9, H0 = 15, K0 = 8, G0 = 29, J0 = 256, zs = J0 + 1 + G0, Y0 = 30, X0 = 19, Q0 = 2 * zs + 1, em = 15, de = 3, Rt = 258, pt = Rt + de + 1, tm = 32, Sr = 42, da = 57, js = 69, Us = 73, Fs = 91, Ls = 103, Qt = 113, qr = 666, Be = 1, Pr = 2, rr = 3, $r = 4, rm = 3, er = (e, t) => (e.msg = tr[t], t), Po = (e) => e * 2 - (e > 4 ? 9 : 0), Ot = (e) => {
   let t = e.length;
   for (; --t >= 0; )
     e[t] = 0;
@@ -16226,7 +16223,7 @@ const qe = (e) => {
   return i > n && (i = n), i === 0 ? 0 : (e.avail_in -= i, t.set(e.input.subarray(e.next_in, e.next_in + i), r), e.state.wrap === 1 ? e.adler = hn(e.adler, t, i, r) : e.state.wrap === 2 && (e.adler = Pe(e.adler, t, i, r)), e.next_in += i, e.total_in += i, i);
 }, wu = (e, t) => {
   let r = e.max_chain_length, n = e.strstart, i, s, a = e.prev_length, o = e.nice_match;
-  const l = e.strstart > e.w_size - gt ? e.strstart - (e.w_size - gt) : 0, c = e.window, u = e.w_mask, d = e.prev, f = e.strstart + Rt;
+  const l = e.strstart > e.w_size - pt ? e.strstart - (e.w_size - pt) : 0, c = e.window, u = e.w_mask, d = e.prev, f = e.strstart + Rt;
   let h = c[n + a - 1], g = c[n + a];
   e.prev_length >= e.good_match && (r >>= 2), o > e.lookahead && (o = e.lookahead);
   do
@@ -16247,12 +16244,12 @@ const qe = (e) => {
   const t = e.w_size;
   let r, n, i;
   do {
-    if (n = e.window_size - e.lookahead - e.strstart, e.strstart >= t + (t - gt) && (e.window.set(e.window.subarray(t, t + t - n), 0), e.match_start -= t, e.strstart -= t, e.block_start -= t, e.insert > e.strstart && (e.insert = e.strstart), nm(e), n += t), e.strm.avail_in === 0)
+    if (n = e.window_size - e.lookahead - e.strstart, e.strstart >= t + (t - pt) && (e.window.set(e.window.subarray(t, t + t - n), 0), e.match_start -= t, e.strstart -= t, e.block_start -= t, e.insert > e.strstart && (e.insert = e.strstart), nm(e), n += t), e.strm.avail_in === 0)
       break;
     if (r = Bs(e.strm, e.window, e.strstart + e.lookahead, n), e.lookahead += r, e.lookahead + e.insert >= de)
       for (i = e.strstart - e.insert, e.ins_h = e.window[i], e.ins_h = Nt(e, e.ins_h, e.window[i + 1]); e.insert && (e.ins_h = Nt(e, e.ins_h, e.window[i + de - 1]), e.prev[i & e.w_mask] = e.head[e.ins_h], e.head[e.ins_h] = i, i++, e.insert--, !(e.lookahead + e.insert < de)); )
         ;
-  } while (e.lookahead < gt && e.strm.avail_in !== 0);
+  } while (e.lookahead < pt && e.strm.avail_in !== 0);
 }, bu = (e, t) => {
   let r = e.pending_buf_size - 5 > e.w_size ? e.w_size : e.pending_buf_size - 5, n, i, s, a = 0, o = e.strm.avail_in;
   do {
@@ -16264,13 +16261,13 @@ const qe = (e) => {
 }, rs = (e, t) => {
   let r, n;
   for (; ; ) {
-    if (e.lookahead < gt) {
-      if (Ar(e), e.lookahead < gt && t === Ct)
+    if (e.lookahead < pt) {
+      if (Ar(e), e.lookahead < pt && t === Ct)
         return Be;
       if (e.lookahead === 0)
         break;
     }
-    if (r = 0, e.lookahead >= de && (e.ins_h = Nt(e, e.ins_h, e.window[e.strstart + de - 1]), r = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h], e.head[e.ins_h] = e.strstart), r !== 0 && e.strstart - r <= e.w_size - gt && (e.match_length = wu(e, r)), e.match_length >= de)
+    if (r = 0, e.lookahead >= de && (e.ins_h = Nt(e, e.ins_h, e.window[e.strstart + de - 1]), r = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h], e.head[e.ins_h] = e.strstart), r !== 0 && e.strstart - r <= e.w_size - pt && (e.match_length = wu(e, r)), e.match_length >= de)
       if (n = It(e, e.strstart - e.match_start, e.match_length - de), e.lookahead -= e.match_length, e.match_length <= e.max_lazy_match && e.lookahead >= de) {
         e.match_length--;
         do
@@ -16288,13 +16285,13 @@ const qe = (e) => {
 }, fr = (e, t) => {
   let r, n, i;
   for (; ; ) {
-    if (e.lookahead < gt) {
-      if (Ar(e), e.lookahead < gt && t === Ct)
+    if (e.lookahead < pt) {
+      if (Ar(e), e.lookahead < pt && t === Ct)
         return Be;
       if (e.lookahead === 0)
         break;
     }
-    if (r = 0, e.lookahead >= de && (e.ins_h = Nt(e, e.ins_h, e.window[e.strstart + de - 1]), r = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h], e.head[e.ins_h] = e.strstart), e.prev_length = e.match_length, e.prev_match = e.match_start, e.match_length = de - 1, r !== 0 && e.prev_length < e.max_lazy_match && e.strstart - r <= e.w_size - gt && (e.match_length = wu(e, r), e.match_length <= 5 && (e.strategy === D0 || e.match_length === de && e.strstart - e.match_start > 4096) && (e.match_length = de - 1)), e.prev_length >= de && e.match_length <= e.prev_length) {
+    if (r = 0, e.lookahead >= de && (e.ins_h = Nt(e, e.ins_h, e.window[e.strstart + de - 1]), r = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h], e.head[e.ins_h] = e.strstart), e.prev_length = e.match_length, e.prev_match = e.match_start, e.match_length = de - 1, r !== 0 && e.prev_length < e.max_lazy_match && e.strstart - r <= e.w_size - pt && (e.match_length = wu(e, r), e.match_length <= 5 && (e.strategy === D0 || e.match_length === de && e.strstart - e.match_start > 4096) && (e.match_length = de - 1)), e.prev_length >= de && e.match_length <= e.prev_length) {
       i = e.strstart + e.lookahead - de, n = It(e, e.strstart - 1 - e.prev_match, e.prev_length - de), e.lookahead -= e.prev_length - 1, e.prev_length -= 2;
       do
         ++e.strstart <= i && (e.ins_h = Nt(e, e.ins_h, e.window[e.strstart + de - 1]), r = e.prev[e.strstart & e.w_mask] = e.head[e.ins_h], e.head[e.ins_h] = e.strstart);
@@ -16342,30 +16339,30 @@ const qe = (e) => {
   }
   return e.insert = 0, t === Qe ? (Ge(e, !0), e.strm.avail_out === 0 ? rr : $r) : e.sym_next && (Ge(e, !1), e.strm.avail_out === 0) ? Be : Pr;
 };
-function ht(e, t, r, n, i) {
+function ut(e, t, r, n, i) {
   this.good_length = e, this.max_lazy = t, this.nice_length = r, this.max_chain = n, this.func = i;
 }
 const Hr = [
   /*      good lazy nice chain */
-  new ht(0, 0, 0, 0, bu),
+  new ut(0, 0, 0, 0, bu),
   /* 0 store only */
-  new ht(4, 4, 8, 4, rs),
+  new ut(4, 4, 8, 4, rs),
   /* 1 max speed, no lazy matches */
-  new ht(4, 5, 16, 8, rs),
+  new ut(4, 5, 16, 8, rs),
   /* 2 */
-  new ht(4, 6, 32, 32, rs),
+  new ut(4, 6, 32, 32, rs),
   /* 3 */
-  new ht(4, 4, 16, 16, fr),
+  new ut(4, 4, 16, 16, fr),
   /* 4 lazy matches */
-  new ht(8, 16, 32, 32, fr),
+  new ut(8, 16, 32, 32, fr),
   /* 5 */
-  new ht(8, 16, 128, 128, fr),
+  new ut(8, 16, 128, 128, fr),
   /* 6 */
-  new ht(8, 32, 128, 256, fr),
+  new ut(8, 32, 128, 256, fr),
   /* 7 */
-  new ht(32, 128, 258, 1024, fr),
+  new ut(32, 128, 258, 1024, fr),
   /* 8 */
-  new ht(32, 258, 258, 4096, fr)
+  new ut(32, 258, 258, 4096, fr)
   /* 9 max compression */
 ], om = (e) => {
   e.window_size = 2 * e.w_size, Ot(e.head), e.max_lazy_match = Hr[e.level].max_lazy, e.good_match = Hr[e.level].good_length, e.nice_match = Hr[e.level].nice_length, e.max_chain_length = Hr[e.level].max_chain, e.strstart = 0, e.block_start = 0, e.lookahead = 0, e.insert = 0, e.match_length = e.prev_length = de - 1, e.match_available = 0, e.ins_h = 0;
@@ -16382,7 +16379,7 @@ const bn = (e) => {
   t.status !== js && t.status !== Us && t.status !== Fs && t.status !== Ls && t.status !== Qt && t.status !== qr ? 1 : 0;
 }, yu = (e) => {
   if (bn(e))
-    return er(e, pt);
+    return er(e, ft);
   e.total_in = e.total_out = 0, e.data_type = W0;
   const t = e.state;
   return t.pending = 0, t.pending_out = 0, t.wrap < 0 && (t.wrap = -t.wrap), t.status = //#ifdef GZIP
@@ -16393,21 +16390,21 @@ const bn = (e) => {
 }, ku = (e) => {
   const t = yu(e);
   return t === je && om(e.state), t;
-}, cm = (e, t) => bn(e) || e.state.wrap !== 2 ? pt : (e.state.gzhead = t, je), Eu = (e, t, r, n, i, s) => {
+}, cm = (e, t) => bn(e) || e.state.wrap !== 2 ? ft : (e.state.gzhead = t, je), Eu = (e, t, r, n, i, s) => {
   if (!e)
-    return pt;
+    return ft;
   let a = 1;
   if (t === B0 && (t = 6), n < 0 ? (a = 0, n = -n) : n > 15 && (a = 2, n -= 16), i < 1 || i > q0 || r !== bi || n < 8 || n > 15 || t < 0 || t > 9 || s < 0 || s > M0 || n === 8 && a !== 1)
-    return er(e, pt);
+    return er(e, ft);
   n === 8 && (n = 9);
   const o = new lm();
   return e.state = o, o.strm = e, o.status = Sr, o.wrap = a, o.gzhead = null, o.w_bits = n, o.w_size = 1 << o.w_bits, o.w_mask = o.w_size - 1, o.hash_bits = i + 7, o.hash_size = 1 << o.hash_bits, o.hash_mask = o.hash_size - 1, o.hash_shift = ~~((o.hash_bits + de - 1) / de), o.window = new Uint8Array(o.w_size * 2), o.head = new Uint16Array(o.hash_size), o.prev = new Uint16Array(o.w_size), o.lit_bufsize = 1 << i + 6, o.pending_buf_size = o.lit_bufsize * 4, o.pending_buf = new Uint8Array(o.pending_buf_size), o.sym_buf = o.lit_bufsize, o.sym_end = (o.lit_bufsize - 1) * 3, o.level = t, o.strategy = s, o.method = r, ku(e);
 }, um = (e, t) => Eu(e, t, bi, H0, K0, V0), hm = (e, t) => {
   if (bn(e) || t > Co || t < 0)
-    return e ? er(e, pt) : pt;
+    return e ? er(e, ft) : ft;
   const r = e.state;
   if (!e.output || e.avail_in !== 0 && !e.input || r.status === qr && t !== Qe)
-    return er(e, e.avail_out === 0 ? ts : pt);
+    return er(e, e.avail_out === 0 ? ts : ft);
   const n = r.last_flush;
   if (r.last_flush = t, r.pending !== 0) {
     if (qe(e), e.avail_out === 0)
@@ -16493,16 +16490,16 @@ const bn = (e) => {
   return t !== Qe ? je : r.wrap <= 0 ? No : (r.wrap === 2 ? (ge(r, e.adler & 255), ge(r, e.adler >> 8 & 255), ge(r, e.adler >> 16 & 255), ge(r, e.adler >> 24 & 255), ge(r, e.total_in & 255), ge(r, e.total_in >> 8 & 255), ge(r, e.total_in >> 16 & 255), ge(r, e.total_in >> 24 & 255)) : (Zr(r, e.adler >>> 16), Zr(r, e.adler & 65535)), qe(e), r.wrap > 0 && (r.wrap = -r.wrap), r.pending !== 0 ? je : No);
 }, dm = (e) => {
   if (bn(e))
-    return pt;
+    return ft;
   const t = e.state.status;
   return e.state = null, t === Qt ? er(e, L0) : je;
 }, fm = (e, t) => {
   let r = t.length;
   if (bn(e))
-    return pt;
+    return ft;
   const n = e.state, i = n.wrap;
   if (i === 2 || i === 1 && n.status !== Sr || n.lookahead)
-    return pt;
+    return ft;
   if (i === 1 && (e.adler = hn(e.adler, t, r, 0)), n.wrap = 0, r >= n.w_size) {
     i === 0 && (Ot(n.head), n.strstart = 0, n.block_start = 0, n.insert = 0);
     let l = new Uint8Array(n.w_size);
@@ -18168,7 +18165,7 @@ const uv = ({
   source: e,
   cancel: t
 }) => {
-  const [r, n] = $e([]), { createApp: i, session: s, reloadApps: a } = Me(), o = ot();
+  const [r, n] = $e([]), { createApp: i, session: s, reloadApps: a } = Me(), o = mt();
   return /* @__PURE__ */ j("div", { className: "prompt-modal", children: /* @__PURE__ */ Y(Ie, { className: "altstore-prompt", children: [
     /* @__PURE__ */ Y("h2", { children: [
       "Select apps to import from ",
@@ -20487,7 +20484,7 @@ const c1 = /* @__PURE__ */ Z("ZodLiteral", (e, t) => {
     }
   });
 });
-function dt(e, t) {
+function ht(e, t) {
   return new c1({
     type: "literal",
     values: Array.isArray(e) ? e : [e],
@@ -20632,10 +20629,10 @@ const zl = Qr([he(), jr({
   localizedDescription: he(),
   iconURL: he(),
   tintColor: he().optional(),
-  screenshots: Qr([Pt(zl), ch(Qr([dt("iphone"), dt("ipad")]), Pt(zl))]).optional(),
+  screenshots: Qr([Pt(zl), ch(Qr([ht("iphone"), ht("ipad")]), Pt(zl))]).optional(),
   versions: Pt(A1),
   appPermissions: T1.optional(),
-  category: Qr([dt("developer"), dt("entertainment"), dt("games"), dt("lifestyle"), dt("other"), dt("photo-video"), dt("social"), dt("utilities")]).optional()
+  category: Qr([ht("developer"), ht("entertainment"), ht("games"), ht("lifestyle"), ht("other"), ht("photo-video"), ht("social"), ht("utilities")]).optional()
 }), R1 = jr({
   title: he(),
   identifier: he(),
@@ -20670,7 +20667,7 @@ const zl = Qr([he(), jr({
   entitlements: [],
   privacy: []
 }, K1 = () => {
-  const { session: e, createApp: t, reloadApps: r } = Me(), n = ot(), i = en(null), s = en(null), [a, o] = $e(null);
+  const { session: e, createApp: t, reloadApps: r } = Me(), n = mt(), i = en(null), s = en(null), [a, o] = $e(null);
   return /* @__PURE__ */ Y("div", { className: "developer-container", children: [
     /* @__PURE__ */ j("h1", { style: { marginBottom: 0 }, children: "Create New App" }),
     /* @__PURE__ */ j(
@@ -20884,7 +20881,7 @@ const zl = Qr([he(), jr({
   version: "",
   checksum: null
 }, G1 = () => {
-  const { id: e } = Bt(), { apps: t, session: r } = Me(), n = ot(), i = en(null), s = t.find((a) => a.id === Number(e));
+  const { id: e } = Bt(), { apps: t, session: r } = Me(), n = mt(), i = en(null), s = t.find((a) => a.id === Number(e));
   return s ? /* @__PURE__ */ Y("div", { className: "developer-container app-page-container", children: [
     /* @__PURE__ */ j(
       an,
@@ -20990,7 +20987,7 @@ const zl = Qr([he(), jr({
     throw new Error("usePrompt must be used within a PromptProvider");
   return e;
 }, Y1 = () => {
-  const { id: e, versionId: t } = Bt(), { apps: r, reloadApps: n } = Me(), i = r.find((d) => d.id === Number(e)), [s, a] = $e(!0), [o, l] = $e(null), { showPrompt: c } = ph(), u = ot();
+  const { id: e, versionId: t } = Bt(), { apps: r, reloadApps: n } = Me(), i = r.find((d) => d.id === Number(e)), [s, a] = $e(!0), [o, l] = $e(null), { showPrompt: c } = ph(), u = mt();
   return $t(() => {
     (async () => {
       if (!i) return;
@@ -21060,7 +21057,7 @@ const zl = Qr([he(), jr({
   "screenshots",
   "management"
 ], X1 = () => {
-  const e = ot(), t = Lt(), { id: r } = Bt(), { apps: n } = Me(), i = n.find((a) => a.id === Number(r)), s = t.pathname.split("/")[4] || "info";
+  const e = mt(), t = Lt(), { id: r } = Bt(), { apps: n } = Me(), i = n.find((a) => a.id === Number(r)), s = t.pathname.split("/")[4] || "info";
   return i ? /* @__PURE__ */ Y("div", { className: "developer-container app-page-container", children: [
     /* @__PURE__ */ j(an, { app: i }),
     /* @__PURE__ */ j(Ie, { className: "tab-buttons", children: P1.map((a) => /* @__PURE__ */ j(
@@ -21277,7 +21274,7 @@ const zl = Qr([he(), jr({
     ] })
   ] }) }) : /* @__PURE__ */ j("div", { className: "developer-container", children: /* @__PURE__ */ j("h1", { style: { marginBottom: 0 }, children: "App Not Found" }) });
 }, tk = () => {
-  const { id: e } = Bt(), { apps: t } = Me(), r = ot(), n = t.find((l) => l.id === Number(e)), [i, s] = $e(!0), [a, o] = $e([]);
+  const { id: e } = Bt(), { apps: t } = Me(), r = mt(), n = t.find((l) => l.id === Number(e)), [i, s] = $e(!0), [a, o] = $e([]);
   return $t(() => {
     (async () => {
       if (!n) return;
@@ -21474,7 +21471,7 @@ async function z1(e, t, r) {
   ce.success("App deleted successfully."), t("/developers"), r();
 }
 const nk = () => {
-  const { id: e } = Bt(), { apps: t, reloadApps: r } = Me(), n = ot(), i = t.find((a) => a.id === Number(e)), { showPrompt: s } = ph();
+  const { id: e } = Bt(), { apps: t, reloadApps: r } = Me(), n = mt(), i = t.find((a) => a.id === Number(e)), { showPrompt: s } = ph();
   return i ? /* @__PURE__ */ j("section", { className: "developer-page", children: /* @__PURE__ */ Y(Ie, { className: "app-subcard management-card", children: [
     /* @__PURE__ */ j("h2", { style: { marginTop: 0 }, children: "Danger Zone" }),
     /* @__PURE__ */ j(
