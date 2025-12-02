@@ -1,0 +1,11 @@
+.new-version-back-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-version-back-buttons span {
+  color: var(--text-muted);
+}

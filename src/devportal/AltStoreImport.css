@@ -1,0 +1,42 @@
+.altstore-app-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.altstore-app-wrapper {
+  background-color: var(--tertiary-background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  flex: 1 1 calc(50% - 1rem);
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid var(--glass-border);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.altstore-app-wrapper:hover {
+  background-color: var(--quaternary-background);
+  border: 1px solid var(--accent-primary);
+}
+
+.altstore-app-wrapper-selected {
+  border: 1px solid var(--success) !important;
+  box-shadow: 0 0 4px var(--success);
+}
+
+.import-altstore-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.import-altstore-button:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.altstore-prompt {
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 5rem);
+  overflow: auto;
+}

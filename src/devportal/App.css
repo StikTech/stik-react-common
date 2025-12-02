@@ -1,0 +1,127 @@
+.app-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.versions-card,
+.icon-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.versions-card .app-subtext {
+  margin-bottom: 1rem;
+}
+
+.versions-card ul {
+  width: 100%;
+}
+
+.app-subcard h2 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.app-page-container button {
+  width: 100%;
+}
+
+.icon-card {
+  gap: 1rem;
+}
+
+.icon-card .app-icon {
+  width: 8rem !important;
+}
+
+.tab-buttons .text-link {
+  text-decoration: none;
+}
+
+.tab-buttons .text-link-active {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.tab-buttons h3:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.tab-buttons h3 + h3 {
+  border-left: 1px solid var(--text-muted);
+  padding-left: 1rem;
+}
+
+.app-subtext {
+  color: var(--label-secondary);
+  margin: 0;
+}
+
+.entitlement-text {
+  font-family: monospace;
+  background-color: var(--tertiary-background);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.3rem;
+}
+
+.entitlements-container .entitlements-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-width: 65vw;
+}
+
+.entitlements-card ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.entitlements-card ul p {
+  text-align: center;
+  margin: 0;
+}
+
+.entitlement-item {
+  display: flex;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.entitlement-item + .entitlement-item {
+  margin-top: 0.5rem;
+}
+
+.entitlement-item input {
+  flex: 1;
+  border-radius: 0;
+}
+
+.entitlement-item button {
+  width: fit-content;
+  border-radius: 0;
+}
+
+.entitlements-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.management-card h2 {
+  margin-bottom: 1rem;
+}

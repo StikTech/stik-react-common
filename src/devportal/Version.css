@@ -1,0 +1,23 @@
+.version-back-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.version-back-buttons span {
+  color: var(--text-muted);
+}
+
+.delete-version-card {
+  text-align: center;
+}
+
+.delete-version-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+.delete-version-card p {
+  margin-bottom: 1rem;
+}

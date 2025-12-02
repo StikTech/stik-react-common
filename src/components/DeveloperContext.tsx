@@ -6,13 +6,13 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import { getSupabase } from "../supabase";
+import { getSupabase } from "../utils/supabase";
 import type {
   AuthError,
   PostgrestSingleResponse,
   Session,
 } from "@supabase/supabase-js";
-import { beautifyAuthError, beautifyPostgrestError } from "../error";
+import { beautifyAuthError, beautifyPostgrestError } from "../utils/error";
 import { toast } from "sonner";
 import React from "react";
 import { GlassCard } from "./GlassCard";

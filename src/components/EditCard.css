@@ -1,0 +1,27 @@
+.edit-app-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: max(500px, 40vw);
+}
+
+.edit-app-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.edit-required {
+  color: var(--danger);
+}
+
+.edit-app-card h2,
+.edit-app-card p {
+  margin: 0;
+}
+
+.edit-app-title {
+  text-align: center !important;
+  width: 100%;
+}

@@ -1,0 +1,40 @@
+.developer-page {
+  padding: 1.5rem;
+  padding-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.developer-page > div {
+  min-width: 550px;
+}
+
+@media screen and (max-width: 600px) {
+  .developer-page > div {
+    min-width: unset;
+    flex: unset;
+    width: 100%;
+  }
+}
+
+.developer-page h3 {
+  margin-top: 0;
+}
+
+.developer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.developer-container {
+  text-align: center;
+}
+
+.developer-app-list-item {
+  margin-bottom: 1rem;
+  width: 100%;
+}

@@ -1,5 +1,5 @@
 import { SupabaseClient } from '@supabase/supabase-js';
-import { Database } from './database.types';
+import { Database } from '../database.types';
 export declare function initSupabase(url: string, key: string): void;
 export declare function getSupabase(): SupabaseClient<Database, "public", "public", {
     Tables: {
@@ -12,11 +12,11 @@ export declare function getSupabase(): SupabaseClient<Database, "public", "publi
                 entitlements: string[];
                 icon_path: string | null;
                 id: number;
-                ipad_screenshots: import('./database.types').Json;
-                iphone_screenshots: import('./database.types').Json;
+                ipad_screenshots: import('../database.types').Json;
+                iphone_screenshots: import('../database.types').Json;
                 name: string;
                 owner: string;
-                privacy: import('./database.types').Json;
+                privacy: import('../database.types').Json;
                 subtitle: string | null;
             };
             Insert: {
@@ -27,11 +27,11 @@ export declare function getSupabase(): SupabaseClient<Database, "public", "publi
                 entitlements: string[];
                 icon_path?: string | null;
                 id?: number;
-                ipad_screenshots?: import('./database.types').Json;
-                iphone_screenshots?: import('./database.types').Json;
+                ipad_screenshots?: import('../database.types').Json;
+                iphone_screenshots?: import('../database.types').Json;
                 name: string;
                 owner: string;
-                privacy: import('./database.types').Json;
+                privacy: import('../database.types').Json;
                 subtitle?: string | null;
             };
             Update: {
@@ -42,11 +42,11 @@ export declare function getSupabase(): SupabaseClient<Database, "public", "publi
                 entitlements?: string[];
                 icon_path?: string | null;
                 id?: number;
-                ipad_screenshots?: import('./database.types').Json;
-                iphone_screenshots?: import('./database.types').Json;
+                ipad_screenshots?: import('../database.types').Json;
+                iphone_screenshots?: import('../database.types').Json;
                 name?: string;
                 owner?: string;
-                privacy?: import('./database.types').Json;
+                privacy?: import('../database.types').Json;
                 subtitle?: string | null;
             };
             Relationships: [];
@@ -95,28 +95,28 @@ export declare function getSupabase(): SupabaseClient<Database, "public", "publi
     Functions: {
         json_matches_schema: {
             Args: {
-                instance: import('./database.types').Json;
-                schema: import('./database.types').Json;
+                instance: import('../database.types').Json;
+                schema: import('../database.types').Json;
             };
             Returns: boolean;
         };
         jsonb_matches_schema: {
             Args: {
-                instance: import('./database.types').Json;
-                schema: import('./database.types').Json;
+                instance: import('../database.types').Json;
+                schema: import('../database.types').Json;
             };
             Returns: boolean;
         };
         jsonschema_is_valid: {
             Args: {
-                schema: import('./database.types').Json;
+                schema: import('../database.types').Json;
             };
             Returns: boolean;
         };
         jsonschema_validation_errors: {
             Args: {
-                instance: import('./database.types').Json;
-                schema: import('./database.types').Json;
+                instance: import('../database.types').Json;
+                schema: import('../database.types').Json;
             };
             Returns: string[];
         };

@@ -1,0 +1,27 @@
+.import-ipa h2 {
+  margin: 0;
+}
+.import-ipa p {
+  margin: 0;
+}
+
+.import-ipa > button {
+  width: 100%;
+}
+
+.import-ipa {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+/* 
+.import-inputs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.import-inputs input {
+  flex: 1;
+} */
