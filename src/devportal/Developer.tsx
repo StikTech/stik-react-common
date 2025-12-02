@@ -1,12 +1,12 @@
 import "./Developer.css";
 import { GlassCard, useSession } from "../main";
 import { getSupabase } from "../utils/supabase";
-//import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { AppTitle } from "../components/AppTitle";
 
 export const Developer = () => {
   const { session, apps } = useSession();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="developer-container">
@@ -20,7 +20,7 @@ export const Developer = () => {
           <div className="developer-buttons">
             <button
               onClick={() => {
-                //navigate("/developers/account-settings");
+                navigate("/developers/account-settings");
               }}
             >
               Account Settings
@@ -38,7 +38,7 @@ export const Developer = () => {
                 className="button developer-app-list-item"
                 key={app.id}
                 onClick={() => {
-                  //navigate(`/developers/app/${app.id}`);
+                  navigate(`/developers/app/${app.id}`);
                 }}
               >
                 <AppTitle app={app} inline />
@@ -47,7 +47,7 @@ export const Developer = () => {
           </ul>
           <button
             onClick={() => {
-              //navigate("/developers/new-app");
+              navigate("/developers/new-app");
             }}
             className="primary"
             style={{

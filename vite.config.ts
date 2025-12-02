@@ -23,7 +23,14 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "react-router",
+        "sonner",
+        "@supabase/supabase-js",
+      ],
       input: Object.fromEntries(
         globSync(["src/components/**/index.tsx", "src/main.ts"]).map((file) => {
           // This remove `src/` as well as the file extension from each
