@@ -38,7 +38,13 @@ const DeveloperContext = createContext<DeveloperContextType | undefined>(
   undefined
 );
 
-export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
+export const DeveloperProvider = ({
+  children,
+  customOauthHandler,
+}: {
+  children: ReactNode;
+  customOauthHandler?: (provider: string) => void;
+}) => {
   const [loading, setLoading] = useState(true);
   const [session, setSession] = useState<Session | null>(null);
   const [apps, setApps] = useState<DBApp[]>([]);
@@ -286,7 +292,7 @@ export const DeveloperProvider = ({ children }: { children: ReactNode }) => {
   }
 
   if (!session) {
-    return <Login />;
+    return <Login customOauthHandler={customOauthHandler} />;
   }
 
   return (
@@ -313,7 +319,11 @@ export const useSession = (): DeveloperContextType => {
   return context;
 };
 
-const Login = () => {
+const Login = ({
+  customOauthHandler,
+}: {
+  customOauthHandler?: (provider: string) => void;
+}) => {
   const [signUp, setSignUp] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -387,12 +397,16 @@ const Login = () => {
             <button
               className="github-button"
               onClick={() => {
-                getSupabase().auth.signInWithOAuth({
-                  provider: "github",
-                  options: {
-                    redirectTo: `${window.location.origin}/developers`,
-                  },
-                });
+                if (customOauthHandler) {
+                  customOauthHandler("github");
+                } else {
+                  getSupabase().auth.signInWithOAuth({
+                    provider: "github",
+                    options: {
+                      redirectTo: `${window.location.origin}/developers`,
+                    },
+                  });
+                }
               }}
             >
               <img src={githubLogo} alt="GitHub Logo" className="github-logo" />

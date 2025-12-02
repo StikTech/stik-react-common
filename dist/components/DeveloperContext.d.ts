@@ -9,8 +9,9 @@ type DeveloperContextType = {
     uploadIcon: (file: File, app: DBApp) => Promise<void>;
     uploadScreenshot: (files: File[], app: DBApp, isIpad: boolean) => Promise<void>;
 };
-export declare const DeveloperProvider: ({ children }: {
+export declare const DeveloperProvider: ({ children, customOauthHandler, }: {
     children: ReactNode;
+    customOauthHandler?: (provider: string) => void;
 }) => import("react/jsx-runtime").JSX.Element | null;
 export declare const useSession: () => DeveloperContextType;
 export {};
