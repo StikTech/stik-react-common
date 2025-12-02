@@ -10,6 +10,7 @@ import { getSupabase } from "../utils/supabase";
 import type {
   AuthError,
   PostgrestSingleResponse,
+  Provider,
   Session,
 } from "@supabase/supabase-js";
 import { beautifyAuthError, beautifyPostgrestError } from "../utils/error";
@@ -43,7 +44,7 @@ export const DeveloperProvider = ({
   customOauthHandler,
 }: {
   children: ReactNode;
-  customOauthHandler?: (provider: string) => void;
+  customOauthHandler?: (provider: Provider) => void;
 }) => {
   const [loading, setLoading] = useState(true);
   const [session, setSession] = useState<Session | null>(null);
@@ -322,7 +323,7 @@ export const useSession = (): DeveloperContextType => {
 const Login = ({
   customOauthHandler,
 }: {
-  customOauthHandler?: (provider: string) => void;
+  customOauthHandler?: (provider: Provider) => void;
 }) => {
   const [signUp, setSignUp] = useState(true);
   const [email, setEmail] = useState("");

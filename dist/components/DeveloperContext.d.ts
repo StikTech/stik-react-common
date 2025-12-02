@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { PostgrestSingleResponse, Session } from '@supabase/supabase-js';
+import { PostgrestSingleResponse, Provider, Session } from '@supabase/supabase-js';
 import { DBApp } from '../types';
 type DeveloperContextType = {
     session: Session;
@@ -11,7 +11,7 @@ type DeveloperContextType = {
 };
 export declare const DeveloperProvider: ({ children, customOauthHandler, }: {
     children: ReactNode;
-    customOauthHandler?: (provider: string) => void;
+    customOauthHandler?: (provider: Provider) => void;
 }) => import("react/jsx-runtime").JSX.Element | null;
 export declare const useSession: () => DeveloperContextType;
 export {};
