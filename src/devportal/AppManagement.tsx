@@ -2,8 +2,8 @@ import "./Developer.css";
 import "./App.css";
 import { useSession, GlassCard } from "../main";
 import { useNavigate, useParams } from "react-router";
-import { usePrompt } from "./PromptContext";
-import deleteApp from "./deleteApp";
+import { usePrompt } from "../utils/PromptContext";
+import deleteApp from "../utils/deleteApp";
 
 export const AppManagement = () => {
   const { id } = useParams<{ id: string }>();

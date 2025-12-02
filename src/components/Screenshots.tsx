@@ -2,7 +2,7 @@ import { useMemo, useRef } from "react";
 import { useSession, type DBApp, type Screenshot } from "../main";
 import "./Screenshots.css";
 import { toast } from "sonner";
-import { supabase } from "../../../StikStore-Web/src/utils/supabase";
+import { getSupabase } from "../main";
 
 export const Screenshots = ({
   isIpad,
@@ -87,8 +87,8 @@ const ScreenshotElem = ({
   const url = useMemo(
     () =>
       screenshot
-        ? supabase.storage.from("app-images").getPublicUrl(screenshot.path).data
-            .publicUrl
+        ? getSupabase().storage.from("app-images").getPublicUrl(screenshot.path)
+            .data.publicUrl
         : "/default-icon.png",
     [screenshot]
   );
@@ -104,8 +104,8 @@ const ScreenshotElem = ({
     <div className="screenshot-image-container">
       <div
         onClick={async () => {
-          let { error } = await supabase.storage
-            .from("app-images")
+          let { error } = await getSupabase()
+            .storage.from("app-images")
             .remove([screenshot.path]);
           if (error) {
             console.error("Error deleting screenshot from storage:", error);
@@ -122,7 +122,7 @@ const ScreenshotElem = ({
             columnToUpdate as "ipad_screenshots" | "iphone_screenshots"
           ].filter((s) => s.path !== screenshot.path);
 
-          const res = await supabase
+          const res = await getSupabase()
             .from("apps")
             .update({
               [columnToUpdate]: updatedScreenshots,
