@@ -64,7 +64,6 @@ export const DeveloperProvider = ({
       console.error("Error checking reviewer status:", error);
       setIsReviewer(false);
     } else {
-      console.log(data);
       setIsReviewer(data?.roles?.includes("reviewer") || false);
     }
   }, []);
