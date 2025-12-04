@@ -9828,7 +9828,7 @@ const Do = rr([se(), Vt({
           /* @__PURE__ */ Z("p", { children: "Reviewer Feedback" }),
           /* @__PURE__ */ Z("div", { className: "review-feedback", children: l.message || "No feedback provided." })
         ] }),
-        a.status === "pending" && /* @__PURE__ */ Z(
+        a.status === "draft" && /* @__PURE__ */ Z(
           "button",
           {
             className: "primary",
