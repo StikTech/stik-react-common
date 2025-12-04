@@ -9803,9 +9803,9 @@ const Do = rr([se(), Vt({
           }
         }
       ),
-      /* @__PURE__ */ X(Ee, { className: "app-subcard management-card delete-version-card", children: [
-        /* @__PURE__ */ Z("div", { children: /* @__PURE__ */ Z("h2", { style: { marginBottom: "0.5rem" }, children: "Manage Version" }) }),
-        /* @__PURE__ */ X("p", { style: { margin: 0 }, children: [
+      /* @__PURE__ */ X(Ee, { className: "app-subcard management-card manage-version-card", children: [
+        /* @__PURE__ */ Z("h2", { children: "Manage Version" }),
+        /* @__PURE__ */ X("p", { children: [
           "Current Status:",
           " ",
           /* @__PURE__ */ Z(
@@ -9849,7 +9849,6 @@ const Do = rr([se(), Vt({
           "button",
           {
             className: "danger",
-            style: { marginTop: "1rem" },
             onClick: async () => {
               l({
                 title: "Delete Version",

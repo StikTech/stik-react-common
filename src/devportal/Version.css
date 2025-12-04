@@ -10,14 +10,14 @@
   color: var(--text-muted);
 }
 
-.delete-version-card {
+.manage-version-card {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-.delete-version-card h2 {
-  margin-bottom: 0.5rem;
-}
-
-.delete-version-card p {
-  margin-bottom: 1rem;
+.manage-version-card p {
+  margin: 0;
 }

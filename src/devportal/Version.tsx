@@ -100,11 +100,9 @@ export const Version = () => {
             }
           }}
         />
-        <GlassCard className="app-subcard management-card delete-version-card">
-          <div>
-            <h2 style={{ marginBottom: "0.5rem" }}>Manage Version</h2>
-          </div>
-          <p style={{ margin: 0 }}>
+        <GlassCard className="app-subcard management-card manage-version-card">
+          <h2>Manage Version</h2>
+          <p>
             Current Status:{" "}
             <strong
               style={{
@@ -148,7 +146,6 @@ export const Version = () => {
 
           <button
             className="danger"
-            style={{ marginTop: "1rem" }}
             onClick={async () => {
               showPrompt({
                 title: "Delete Version",
