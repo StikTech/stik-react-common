@@ -20,5 +20,5 @@
 
 .manage-version-card p,
 .manage-version-card h2 {
-  margin: 0;
+  margin: 0 !important;
 }
