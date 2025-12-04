@@ -58,12 +58,9 @@ const ys = "data:image/svg+xml,%3csvg%20width='98'%20height='96'%20xmlns='http:/
 }) => {
   const [t, n] = ke(!0), [i, o] = ke(null), [s, a] = ke([]), [c, l] = ke(!1), u = Vo.useRef(!1), d = zt(async (x) => {
     const { data: h, error: g } = await ae().from("profiles").select("roles").eq("user_id", x.user.id).single();
-    g ? (console.error("Error checking reviewer status:", g), l(!1)) : console.log(h);
+    g ? (console.error("Error checking reviewer status:", g), l(!1)) : l(h?.roles?.includes("reviewer") || !1);
   }, []);
   nt(() => {
-    ae().auth.getSession().then(({ data: { session: h } }) => {
-      o(h), n(!1), h && d(h);
-    });
     const {
       data: { subscription: x }
     } = ae().auth.onAuthStateChange((h, g) => {

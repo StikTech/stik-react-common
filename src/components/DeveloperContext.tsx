@@ -64,20 +64,20 @@ export const DeveloperProvider = ({
       console.error("Error checking reviewer status:", error);
       setIsReviewer(false);
     } else {
-      console.log(data);
+      setIsReviewer(data?.roles?.includes("reviewer") || false);
     }
   }, []);
 
   useEffect(() => {
-    getSupabase()
-      .auth.getSession()
-      .then(({ data: { session } }) => {
-        setSession(session);
-        setLoading(false);
-        if (session) {
-          void checkIfReviewer(session);
-        }
-      });
+    // getSupabase()
+    //   .auth.getSession()
+    //   .then(({ data: { session } }) => {
+    //     setSession(session);
+    //     setLoading(false);
+    //     if (session) {
+    //       void checkIfReviewer(session);
+    //     }
+    //   });
 
     const {
       data: { subscription },
