@@ -9786,7 +9786,7 @@ const Do = rr([se(), Vt({
       ),
       /* @__PURE__ */ q(Ee, { className: "app-subcard management-card delete-version-card", children: [
         /* @__PURE__ */ Z("div", { children: /* @__PURE__ */ Z("h2", { style: { marginBottom: "0.5rem" }, children: "Manage Version" }) }),
-        /* @__PURE__ */ q("p", { style: { marginTop: 0 }, children: [
+        /* @__PURE__ */ q("p", { style: { margin: 0 }, children: [
           "Current Status:",
           " ",
           /* @__PURE__ */ Z(

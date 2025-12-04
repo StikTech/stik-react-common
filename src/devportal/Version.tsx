@@ -100,7 +100,7 @@ export const Version = () => {
           <div>
             <h2 style={{ marginBottom: "0.5rem" }}>Manage Version</h2>
           </div>
-          <p style={{ marginTop: 0 }}>
+          <p style={{ margin: 0 }}>
             Current Status:{" "}
             <strong
               style={{
