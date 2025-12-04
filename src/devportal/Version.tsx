@@ -98,7 +98,18 @@ export const Version = () => {
         />
         <GlassCard className="app-subcard management-card delete-version-card">
           <div>
-            <h2>Delete Version</h2>
+            <h2>Review Status</h2>
+          </div>
+          <p>
+            Current Status:{" "}
+            <strong style={{ textTransform: "capitalize" }}>
+              {version.status.charAt(0).toUpperCase() + version.status.slice(1)}
+            </strong>
+          </p>
+        </GlassCard>
+        <GlassCard className="app-subcard management-card delete-version-card">
+          <div>
+            <h2 style={{ marginBottom: "0.5rem" }}>Delete Version</h2>
             <p className="app-subtext">This action cannot be undone.</p>
           </div>
           <button
