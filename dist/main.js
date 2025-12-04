@@ -9778,6 +9778,7 @@ const Do = rr([se(), Mt({
         {
           version: a,
           save: async (d) => {
+            d.status = "accepted";
             const b = await ae().from("versions").update(d).eq("id", Number(a?.id)).single();
             b.error ? (console.error(b.error), oe.error(Ce(b.error, "version"))) : (oe.success("Version updated successfully"), n());
           }
