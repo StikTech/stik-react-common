@@ -10,7 +10,7 @@ import './assets/main.css';const vs = {
   return /* @__PURE__ */ Z("div", { className: n, style: t, children: e });
 };
 let In = null;
-function H0(e, r, t = !1) {
+function G0(e, r, t = !1) {
   In = gs(e, r, {
     auth: {
       flowType: t ? "pkce" : "implicit"
@@ -52,7 +52,7 @@ function Ce(e, r) {
 }
 const ys = "data:image/svg+xml,%3csvg%20width='98'%20height='96'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M48.854%200C21.839%200%200%2022%200%2049.217c0%2021.756%2013.993%2040.172%2033.405%2046.69%202.427.49%203.316-1.059%203.316-2.362%200-1.141-.08-5.052-.08-9.127-13.59%202.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015%204.934.326%207.523%205.052%207.523%205.052%204.367%207.496%2011.404%205.378%2014.235%204.074.404-3.178%201.699-5.378%203.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283%200-5.378%201.94-9.778%205.014-13.2-.485-1.222-2.184-6.275.486-13.038%200%200%204.125-1.304%2013.426%205.052a46.97%2046.97%200%200%201%2012.214-1.63c4.125%200%208.33.571%2012.213%201.63%209.302-6.356%2013.427-5.052%2013.427-5.052%202.67%206.763.97%2011.816.485%2013.038%203.155%203.422%205.015%207.822%205.015%2013.2%200%2018.905-11.404%2023.06-22.324%2024.283%201.78%201.548%203.316%204.481%203.316%209.126%200%206.6-.08%2011.897-.08%2013.526%200%201.304.89%202.853%203.316%202.364%2019.412-6.52%2033.405-24.935%2033.405-46.691C97.707%2022%2075.788%200%2048.854%200z'%20fill='%23fff'/%3e%3c/svg%3e", Ho = Wo(
   void 0
-), G0 = ({
+), q0 = ({
   children: e,
   customOauthHandler: r
 }) => {
@@ -324,7 +324,7 @@ const ys = "data:image/svg+xml,%3csvg%20width='98'%20height='96'%20xmlns='http:/
       )
     ] })
   ] }) }) }) });
-}, q0 = () => {
+}, X0 = () => {
   const { session: e } = Oe(), r = Ye();
   return /* @__PURE__ */ q("section", { className: "settings-page", children: [
     /* @__PURE__ */ q("div", { className: "settings-header", children: [
@@ -406,7 +406,7 @@ const ys = "data:image/svg+xml,%3csvg%20width='98'%20height='96'%20xmlns='http:/
       ]
     }
   );
-}, X0 = () => {
+}, Y0 = () => {
   const { session: e, apps: r } = Oe(), t = Ye();
   return /* @__PURE__ */ q("div", { className: "developer-container", children: [
     /* @__PURE__ */ Z("h1", { children: "StikStore Developer Portal" }),
@@ -9433,7 +9433,7 @@ const Do = rr([se(), Vt({
   icon_path: null,
   entitlements: [],
   privacy: []
-}, Y0 = () => {
+}, K0 = () => {
   const { session: e, createApp: r, reloadApps: t } = Oe(), n = Ye(), i = Pt(null), o = Pt(null), [s, a] = Ee(null);
   return /* @__PURE__ */ q("div", { className: "developer-container", children: [
     /* @__PURE__ */ Z("h1", { style: { marginBottom: 0 }, children: "Create New App" }),
@@ -9648,7 +9648,7 @@ const Do = rr([se(), Vt({
   version: "",
   checksum: null,
   status: "draft"
-}, K0 = () => {
+}, J0 = () => {
   const { id: e } = dt(), { apps: r, session: t } = Oe(), n = Ye(), i = Pt(null), o = r.find((s) => s.id === Number(e));
   return o ? /* @__PURE__ */ q("div", { className: "developer-container app-page-container", children: [
     /* @__PURE__ */ Z(
@@ -9721,7 +9721,7 @@ const Do = rr([se(), Vt({
       )
     ] })
   ] }) : /* @__PURE__ */ Z("div", { className: "developer-container", children: /* @__PURE__ */ Z("h1", { style: { marginBottom: 0 }, children: "App Not Found" }) });
-}, cs = Wo(void 0), J0 = ({
+}, cs = Wo(void 0), Q0 = ({
   children: e
 }) => {
   const [r, t] = Ee(
@@ -9754,7 +9754,7 @@ const Do = rr([se(), Vt({
   if (!e)
     throw new Error("usePrompt must be used within a PromptProvider");
   return e;
-}, Q0 = () => {
+}, e_ = () => {
   const { id: e, versionId: r } = dt(), { apps: t, reloadApps: n } = Oe(), i = t.find((h) => h.id === Number(e)), [o, s] = Ee(!0), [a, c] = Ee(null), { showPrompt: l } = us(), u = Ye();
   return nt(() => {
     (async () => {
@@ -9786,10 +9786,19 @@ const Do = rr([se(), Vt({
       ),
       /* @__PURE__ */ q(ke, { className: "app-subcard management-card delete-version-card", children: [
         /* @__PURE__ */ Z("div", { children: /* @__PURE__ */ Z("h2", { style: { marginBottom: "0.5rem" }, children: "Review Status" }) }),
-        /* @__PURE__ */ q("p", { children: [
+        /* @__PURE__ */ q("p", { style: { marginTop: 0 }, children: [
           "Current Status:",
           " ",
-          /* @__PURE__ */ Z("strong", { style: { textTransform: "capitalize" }, children: a.status })
+          /* @__PURE__ */ Z(
+            "strong",
+            {
+              style: {
+                textTransform: "capitalize",
+                color: U0(a.status)
+              },
+              children: a.status
+            }
+          )
         ] })
       ] }),
       /* @__PURE__ */ q(ke, { className: "app-subcard management-card delete-version-card", children: [
@@ -9827,17 +9836,32 @@ const Do = rr([se(), Vt({
       ] })
     ] })
   ] }) : /* @__PURE__ */ Z("div", { className: "developer-container", children: /* @__PURE__ */ Z("h1", { style: { marginBottom: 0 }, children: "App Not Found" }) });
-}, U0 = [
+};
+function U0(e) {
+  switch (e) {
+    case "draft":
+      return "inherit";
+    case "pending":
+      return "orange";
+    case "approved":
+      return "var(--success)";
+    case "rejected":
+      return "var(--danger)";
+    default:
+      return "inherit";
+  }
+}
+const B0 = [
   "info",
   "permissions",
   "versions",
   "screenshots",
   "management"
-], e_ = () => {
+], t_ = () => {
   const e = Ye(), r = ms(), { id: t } = dt(), { apps: n } = Oe(), i = n.find((s) => s.id === Number(t)), o = r.pathname.split("/")[4] || "info";
   return i ? /* @__PURE__ */ q("div", { className: "developer-container app-page-container", children: [
     /* @__PURE__ */ Z(nr, { app: i }),
-    /* @__PURE__ */ Z(ke, { className: "tab-buttons", children: U0.map((s) => /* @__PURE__ */ Z(
+    /* @__PURE__ */ Z(ke, { className: "tab-buttons", children: B0.map((s) => /* @__PURE__ */ Z(
       "h3",
       {
         className: "text-link" + (o === s ? " text-link-active" : ""),
@@ -9848,7 +9872,7 @@ const Do = rr([se(), Vt({
     )) }),
     /* @__PURE__ */ Z(bs, {})
   ] }) : /* @__PURE__ */ Z("div", { className: "developer-container", children: /* @__PURE__ */ Z("h1", { style: { marginBottom: 0 }, children: "App Not Found" }) });
-}, t_ = () => {
+}, r_ = () => {
   const { id: e } = dt(), { apps: r, reloadApps: t, uploadIcon: n } = Oe(), i = r.find((a) => a.id === Number(e)), o = Pt(null), s = Vn(
     () => i?.icon_path ? ae().storage.from("app-images").getPublicUrl(i.icon_path).data.publicUrl : "/default-icon.png",
     [i?.icon_path]
@@ -9911,7 +9935,7 @@ const Do = rr([se(), Vt({
       )
     ] })
   ] }) : /* @__PURE__ */ Z("div", { className: "developer-container", children: /* @__PURE__ */ Z("h1", { style: { marginBottom: 0 }, children: "App Not Found" }) });
-}, r_ = () => {
+}, n_ = () => {
   const { id: e } = dt(), { apps: r, reloadApps: t } = Oe(), n = r.find((c) => c.id === Number(e)), [i, o] = Ee(() => n ? n.entitlements || [] : []), [s, a] = Ee(() => n ? n.privacy || [] : []);
   return nt(() => {
     n && o(n.entitlements || []);
@@ -10050,7 +10074,7 @@ const Do = rr([se(), Vt({
       )
     ] })
   ] }) }) : /* @__PURE__ */ Z("div", { className: "developer-container", children: /* @__PURE__ */ Z("h1", { style: { marginBottom: 0 }, children: "App Not Found" }) });
-}, n_ = () => {
+}, i_ = () => {
   const { id: e } = dt(), { apps: r } = Oe(), t = Ye(), n = r.find((c) => c.id === Number(e)), [i, o] = Ee(!0), [s, a] = Ee([]);
   return nt(() => {
     (async () => {
@@ -10096,7 +10120,7 @@ const Do = rr([se(), Vt({
   return /* @__PURE__ */ q("div", { className: "screenshots-inner", children: [
     /* @__PURE__ */ Z("div", { className: "screenshots-grid", children: (e ? r.ipad_screenshots : r.iphone_screenshots).map(
       (i, o) => /* @__PURE__ */ Z(
-        B0,
+        L0,
         {
           screenshot: i,
           app: r,
@@ -10155,7 +10179,7 @@ const Do = rr([se(), Vt({
       }
     )
   ] });
-}, B0 = ({
+}, L0 = ({
   screenshot: e,
   app: r,
   isIpad: t
@@ -10200,7 +10224,7 @@ const Do = rr([se(), Vt({
       }
     )
   ] });
-}, i_ = () => {
+}, o_ = () => {
   const { id: e } = dt(), { apps: r } = Oe(), t = r.find((n) => n.id === Number(e));
   return t ? /* @__PURE__ */ q("section", { className: "developer-page", children: [
     /* @__PURE__ */ q(ke, { className: "app-subcard screenshots-card", children: [
@@ -10213,7 +10237,7 @@ const Do = rr([se(), Vt({
     ] })
   ] }) : /* @__PURE__ */ Z("div", { className: "developer-container", children: /* @__PURE__ */ Z("h1", { style: { marginBottom: 0 }, children: "App Not Found" }) });
 };
-async function L0(e, r, t) {
+async function D0(e, r, t) {
   const n = await ae().auth.getUser();
   if (n.error || !n.data.user) {
     oe.error("You must be logged in to delete an app.");
@@ -10247,7 +10271,7 @@ async function L0(e, r, t) {
   }
   oe.success("App deleted successfully."), r("/developers"), t();
 }
-const o_ = () => {
+const a_ = () => {
   const { id: e } = dt(), { apps: r, reloadApps: t } = Oe(), n = Ye(), i = r.find((s) => s.id === Number(e)), { showPrompt: o } = us();
   return i ? /* @__PURE__ */ Z("section", { className: "developer-page", children: /* @__PURE__ */ q(ke, { className: "app-subcard management-card", children: [
     /* @__PURE__ */ Z("h2", { style: { marginTop: 0 }, children: "Danger Zone" }),
@@ -10264,7 +10288,7 @@ const o_ = () => {
                 text: "Delete",
                 className: "danger",
                 action: async () => {
-                  L0(i, n, t);
+                  D0(i, n, t);
                 }
               },
               { text: "Cancel", action: () => {
@@ -10278,26 +10302,26 @@ const o_ = () => {
   ] }) }) : /* @__PURE__ */ Z("div", { className: "developer-container", children: /* @__PURE__ */ Z("h1", { style: { marginBottom: 0 }, children: "App Not Found" }) });
 };
 export {
-  q0 as AccountSettings,
-  t_ as AppInfo,
-  e_ as AppLayout,
-  o_ as AppManagement,
-  r_ as AppPermissions,
-  i_ as AppScreenshots,
-  n_ as AppVersions,
-  X0 as Developer,
-  G0 as DeveloperProvider,
+  X0 as AccountSettings,
+  r_ as AppInfo,
+  t_ as AppLayout,
+  a_ as AppManagement,
+  n_ as AppPermissions,
+  o_ as AppScreenshots,
+  i_ as AppVersions,
+  Y0 as Developer,
+  q0 as DeveloperProvider,
   As as Dropdown,
   Ss as DropdownOption,
   ke as GlassCard,
-  Y0 as NewApp,
-  K0 as NewVersion,
-  J0 as PromptProvider,
-  Q0 as Version,
+  K0 as NewApp,
+  J0 as NewVersion,
+  Q0 as PromptProvider,
+  e_ as Version,
   ws as beautifyAuthError,
   Ce as beautifyPostgrestError,
   ae as getSupabase,
-  H0 as initSupabase,
+  G0 as initSupabase,
   us as usePrompt,
   Oe as useSession
 };

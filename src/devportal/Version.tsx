@@ -100,9 +100,14 @@ export const Version = () => {
           <div>
             <h2 style={{ marginBottom: "0.5rem" }}>Review Status</h2>
           </div>
-          <p>
+          <p style={{ marginTop: 0 }}>
             Current Status:{" "}
-            <strong style={{ textTransform: "capitalize" }}>
+            <strong
+              style={{
+                textTransform: "capitalize",
+                color: statusColor(version.status),
+              }}
+            >
               {version.status}
             </strong>
           </p>
@@ -153,3 +158,18 @@ export const Version = () => {
     </div>
   );
 };
+
+function statusColor(status: string) {
+  switch (status) {
+    case "draft":
+      return "inherit";
+    case "pending":
+      return "orange";
+    case "approved":
+      return "var(--success)";
+    case "rejected":
+      return "var(--danger)";
+    default:
+      return "inherit";
+  }
+}
