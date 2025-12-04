@@ -113,12 +113,18 @@ export const Version = () => {
           </p>
           {version.status === "draft" && (
             <>
-              <p>
+              <p className="app-subtext">
                 This version will not be visible to users of your app until it
                 is approved.
               </p>
               <button
                 className="primary"
+                disabled={
+                  !version.version ||
+                  !version.build_version ||
+                  !version.download_url ||
+                  !version.checksum
+                }
                 onClick={async () => {
                   showPrompt({
                     title: "Submit Version for Review",

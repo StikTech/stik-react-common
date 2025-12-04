@@ -9625,7 +9625,7 @@ const Do = rr([se(), Vt({
         },
         type: "submit",
         onClick: (o) => {
-          if (o.preventDefault(), !n.version || !n.build_version || !n.download_url)
+          if (o.preventDefault(), !n.version || !n.build_version || !n.download_url || !n.checksum)
             return oe.error("Please fill in all required fields");
           for (const s of jo)
             if (s.validate) {
@@ -9635,7 +9635,7 @@ const Do = rr([se(), Vt({
             }
           r(n);
         },
-        disabled: !n.version || !n.build_version || !n.download_url || n === e,
+        disabled: !n.version || !n.build_version || !n.download_url || !n.checksum || n === e,
         children: "Save Version"
       }
     )
@@ -9801,11 +9801,12 @@ const Do = rr([se(), Vt({
           )
         ] }),
         a.status === "draft" && /* @__PURE__ */ q(Vo, { children: [
-          /* @__PURE__ */ Z("p", { children: "This version will not be visible to users of your app until it is approved." }),
+          /* @__PURE__ */ Z("p", { className: "app-subtext", children: "This version will not be visible to users of your app until it is approved." }),
           /* @__PURE__ */ Z(
             "button",
             {
               className: "primary",
+              disabled: !a.version || !a.build_version || !a.download_url || !a.checksum,
               onClick: async () => {
                 l({
                   title: "Submit Version for Review",

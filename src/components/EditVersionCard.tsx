@@ -96,7 +96,8 @@ export const EditVersionCard = ({
             if (
               !versionData.version ||
               !versionData.build_version ||
-              !versionData.download_url
+              !versionData.download_url ||
+              !versionData.checksum
             ) {
               return toast.error("Please fill in all required fields");
             }
@@ -114,6 +115,7 @@ export const EditVersionCard = ({
             !versionData.version ||
             !versionData.build_version ||
             !versionData.download_url ||
+            !versionData.checksum ||
             versionData === version
           }
         >
