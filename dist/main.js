@@ -9824,9 +9824,9 @@ const Do = rr([se(), Vt({
           ] }),
           /* @__PURE__ */ Z("p", { className: "app-subtext", children: B0(a.status) })
         ] }),
-        /* @__PURE__ */ q("div", { children: [
+        l && /* @__PURE__ */ q("div", { children: [
           /* @__PURE__ */ Z("p", { children: "Reviewer Feedback" }),
-          /* @__PURE__ */ Z("div", { className: "review-feedback", children: "This is a test review." })
+          /* @__PURE__ */ Z("div", { className: "review-feedback", children: l.message || "No feedback provided." })
         ] }),
         a.status === "draft" && /* @__PURE__ */ Z(
           "button",

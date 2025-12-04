@@ -18,7 +18,7 @@ export const Version = () => {
   const app = apps.find((app) => app.id === Number(id));
   const [loading, setLoading] = useState(true);
   const [version, setVersion] = useState<Tables<"versions"> | null>(null);
-  const [_, setReview] = useState<Tables<"reviews"> | null>(null);
+  const [review, setReview] = useState<Tables<"reviews"> | null>(null);
   const { showPrompt } = usePrompt();
   const navigate = useNavigate();
 
@@ -135,12 +135,14 @@ export const Version = () => {
             </p>
             <p className="app-subtext">{statusMessage(version.status)}</p>
           </div>
-          {
+          {review && (
             <div>
               <p>Reviewer Feedback</p>
-              <div className="review-feedback">This is a test review.</div>
+              <div className="review-feedback">
+                {review.message || "No feedback provided."}
+              </div>
             </div>
-          }
+          )}
           {version.status === "draft" && (
             <button
               className="primary"
