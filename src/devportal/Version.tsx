@@ -81,7 +81,6 @@ export const Version = () => {
         <EditVersionCard
           version={version}
           save={async (newVersion) => {
-            newVersion.status = "accepted";
             const res = await getSupabase()
               .from("versions")
               .update(newVersion)
