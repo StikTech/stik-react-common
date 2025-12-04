@@ -102,18 +102,20 @@ export const Version = () => {
         />
         <GlassCard className="app-subcard management-card manage-version-card">
           <h2>Manage Version</h2>
-          <p>
-            Current Status:{" "}
-            <strong
-              style={{
-                textTransform: "capitalize",
-                color: statusColor(version.status),
-              }}
-            >
-              {version.status}
-            </strong>
-          </p>
-          <p className="app-subtext">{statusMessage(version.status)}</p>
+          <div>
+            <p>
+              Current Status:{" "}
+              <strong
+                style={{
+                  textTransform: "capitalize",
+                  color: statusColor(version.status),
+                }}
+              >
+                {version.status}
+              </strong>
+            </p>
+            <p className="app-subtext">{statusMessage(version.status)}</p>
+          </div>
           {version.status === "draft" && (
             <button
               className="primary"

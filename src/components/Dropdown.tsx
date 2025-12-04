@@ -56,7 +56,6 @@ export const Dropdown = ({
     styles["custom-dropdown"],
     className,
     open ? styles["open"] : null,
-    disabled ? styles["disabled"] : null,
   ]
     .filter(Boolean)
     .join(" ");

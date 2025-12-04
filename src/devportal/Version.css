@@ -18,6 +18,7 @@
   gap: 1rem;
 }
 
-.manage-version-card p {
+.manage-version-card p,
+.manage-version-card h2 {
   margin: 0;
 }
