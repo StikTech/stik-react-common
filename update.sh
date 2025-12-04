@@ -1,0 +1,1 @@
+bun run build && git add . && git commit -m "Update" && git push && cd ../StikStore-Web && bun update stik-react-common && cd ../Project-StikStore-PC-Mac && bun update stik-react-common
