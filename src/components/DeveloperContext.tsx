@@ -392,7 +392,7 @@ const Login = ({
                 {signUp ? "Sign up for" : "Login to"} StikStore
               </h1>
               <p className="dev-login-subtitle">
-                One accountasdasdasd to download, purchase, or publish apps.
+                One account to download, purchase, or publish apps.
               </p>
             </div>
             <button

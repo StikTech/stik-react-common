@@ -237,7 +237,7 @@ const ys = "data:image/svg+xml,%3csvg%20width='98'%20height='96'%20xmlns='http:/
         r ? "Sign up for" : "Login to",
         " StikStore"
       ] }),
-      /* @__PURE__ */ Z("p", { className: "dev-login-subtitle", children: "One accountasdasdasd to download, purchase, or publish apps." })
+      /* @__PURE__ */ Z("p", { className: "dev-login-subtitle", children: "One account to download, purchase, or publish apps." })
     ] }),
     /* @__PURE__ */ X(
       "button",
