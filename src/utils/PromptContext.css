@@ -15,6 +15,10 @@
 }
 
 .prompt-modal h2 {
+  margin: 0;
+}
+
+.prompt-modal h4 {
   margin-top: 0;
 }
 
